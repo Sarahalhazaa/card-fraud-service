@@ -1,0 +1,8 @@
+{
+  "threshold": 0.4,
+  "alerts": 65,
+  "frauds_caught": 56,
+  "false_alarms": 9,
+  "missed_frauds": 19,
+  "average_precision": 0.7887467495794763
+}

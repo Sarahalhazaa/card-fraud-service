@@ -1,0 +1,34 @@
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "card-fraud-service"
+version = "1.0.0"
+description = "Card fraud scoring service with reasons (SDA-AIE-113 fraud track)"
+readme = "README.md"
+requires-python = ">=3.12"
+dependencies = [
+    # The model file is a pickle: it only loads safely with the versions that wrote it.
+    "scikit-learn==1.9.1",
+    "numpy==2.5.5",
+    "pandas==3.1.1",
+    "joblib==1.6.0",
+    "pydantic>=2.7,<3",
+    "pydantic-settings>=2.3",
+    "fastapi>=0.115",
+    "uvicorn>=0.30",
+]
+
+[project.optional-dependencies]
+dev = ["pytest>=8", "httpx", "ruff"]
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.ruff]
+line-length = 110
+src = ["src", "scripts", "legacy"]
+
+[tool.ruff.lint]
+select = ["E", "F", "I", "B", "UP"]

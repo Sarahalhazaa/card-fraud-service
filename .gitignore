@@ -1,0 +1,14 @@
+.venv/
+__pycache__/
+*.pyc
+.pytest_cache/
+.ruff_cache/
+*.egg-info/
+# The 150 MB dataset is downloaded, never committed
+data/
+*.part
+# Secrets never enter git. Commit configs/settings.example.env instead.
+.env
+*.env
+!configs/dev.env
+!configs/settings.example.env
