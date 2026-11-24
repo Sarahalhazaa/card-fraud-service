@@ -73,6 +73,21 @@ training/pipeline.py  ->  domain (the hour rule and input order: no training/ser
 | the meaning of "review" or "block" | `domain/assessment.py` |
 | the request shape | `api/schemas.py` |
 
+## Front end (optional extension)
+
+A small Vite + React page for the fraud team: pick an example payment (or paste one), press
+"Check payment", and see the decision, the score against the review and block marks, and the top
+reasons. Bad requests show the field names the API reports.
+
+```bash
+make run              # terminal 1: the API on port 8000
+make front            # terminal 2: the page on http://localhost:5173 (needs Node 18+)
+```
+
+In development, Vite forwards `/v1/*` to the API (`frontend/vite.config.js`; change the target with
+`API_URL=...`), so the API needs no CORS setting. The page reads the example payloads from
+`payloads/`, so there is one copy of them. It is not part of the container image.
+
 ## The API
 
 | Endpoint | What it does |

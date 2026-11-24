@@ -12,3 +12,7 @@ data/
 *.env
 !configs/dev.env
 !configs/settings.example.env
+
+# Front end
+frontend/node_modules/
+frontend/dist/

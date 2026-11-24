@@ -1,5 +1,5 @@
 # Every command of the project, in one place. Run them from the project folder with .venv active.
-.PHONY: install reference train golden score run lint lock image up down smoke
+.PHONY: front install reference train golden score run lint lock image up down smoke
 
 install:      ## install the project and the dev tools into the active venv
 	python -m pip install -e ".[dev]"
@@ -18,6 +18,9 @@ score:        ## score one payment from the command line (no API)
 
 run:          ## start the API on http://localhost:8000/docs
 	python -m uvicorn card_fraud.api.app:create_app --factory --reload
+
+front:        ## start the front end on http://localhost:5173 (the API must be running)
+	cd frontend && npm install && npm run dev
 
 lint:
 	ruff check src scripts legacy
